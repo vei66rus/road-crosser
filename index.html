@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/road-crosser/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/road-crosser/style.css">
+    <title>Road Crosser</title>
+  <script type="module" crossorigin src="/road-crosser/assets/index-BWTugcxQ.js"></script>
+</head>
+
+<body>
+    <div id="game-wrapper">
+        <!-- Header -->
+        <div id="header">
+            <div class="header-logo">ROAD<span class="logo-accent">X</span>CROSSER</div>
+            <div class="header-right">
+                <span id="balance-value">1000.00</span> <span class="balance-icon">$</span>
+            </div>
+        </div>
+
+        <!-- PixiJS Canvas -->
+        <div id="pixi-container"></div>
+
+        <!-- Control Panel -->
+        <div id="control-panel">
+            <div class="panel-section panel-left">
+                <div class="bet-input">
+                    <span id="bet-display">1</span>
+                </div>
+                <div class="bet-presets">
+                    <button class="bet-btn" data-bet="0.5">0.5 $</button>
+                    <button class="bet-btn active" data-bet="1">1 $</button>
+                    <button class="bet-btn" data-bet="2">2 $</button>
+                    <button class="bet-btn" data-bet="7">7 $</button>
+                </div>
+            </div>
+
+            <div class="panel-section panel-center">
+                <div class="diff-header">
+                    <span class="diff-title">Difficulty</span>
+                    <span class="diff-subtitle">Chance of being shot down</span>
+                </div>
+                <div class="diff-buttons">
+                    <button class="diff-btn active" data-diff="easy">Easy</button>
+                    <button class="diff-btn" data-diff="medium">Medium</button>
+                    <button class="diff-btn" data-diff="hard">Hard</button>
+                    <button class="diff-btn" data-diff="hardcore">Hardcore</button>
+                </div>
+            </div>
+
+            <div class="panel-section panel-right">
+                <button id="btn-cashout" class="btn-cashout">CASH OUT<br>0.00 USD</button>
+                <button id="btn-play" class="btn-play">Play</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
