@@ -196,15 +196,11 @@ export class GameEngine {
     this.targetWorldX = this.getTargetWorldX();
 
     if (this.currentLane >= TOTAL_LANES) {
+      const winnings = round2(this.bet * this.currentMultiplier);
+      this.balance = round2(this.balance + winnings);
+      this.state = "cashedOut";
+      this.hud.showStatus("YOU WIN! +$" + winnings.toFixed(2), 0x4caf50);
       this.syncAll();
-      const finishX = FINISH_X + SIDEWALK_W / 2;
-      this.chicken.jumpTo(finishX, () => {
-        const winnings = round2(this.bet * this.currentMultiplier);
-        this.balance = round2(this.balance + winnings);
-        this.state = "cashedOut";
-        this.hud.showStatus("YOU WIN! +$" + winnings.toFixed(2), 0x4caf50);
-        this.syncAll();
-      });
       return;
     }
 
