@@ -19,6 +19,8 @@ export class Lane extends Container {
   private barrier: Graphics;
   private carColor: number;
   private onClick: () => void;
+  private pulseActive = false;
+  private pulseTime = 0;
 
   constructor(x: number, carColor: number, onClick: () => void) {
     super();
@@ -107,6 +109,8 @@ export class Lane extends Container {
   }
 
   applyState(laneState: LaneState, isNextClickable: boolean): void {
+    this.pulseActive = isNextClickable;
+
     if (laneState === "hidden") {
       this.drawManholeGraphics(this.manhole);
       this.manhole.visible = true;
@@ -132,8 +136,16 @@ export class Lane extends Container {
   }
 
   hideManhole(): void {
+    this.pulseActive = false;
     this.manhole.visible = false;
     this.manhole.interactive = false;
     this.labelText.visible = false;
+  }
+
+  update(dt: number): void {
+    if (!this.pulseActive) return;
+    this.pulseTime += dt * 0.05;
+    const pulse = 1 + Math.sin(this.pulseTime * Math.PI * 2) * 0.06;
+    this.manhole.scale.set(pulse);
   }
 }

@@ -52,4 +52,10 @@ export class LaneManager extends Container {
     states[index] = "danger";
     this.lanes[index].applyState("danger", false);
   }
+
+  update(dt: number): void {
+    for (const lane of this.lanes) {
+      lane.update(dt);
+    }
+  }
 }

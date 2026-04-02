@@ -83,6 +83,7 @@ export class GameEngine {
 
     this.chicken.update(dt);
     this.traffic.update(dt);
+    this.laneManager.update(dt);
   }
 
   private getTargetWorldX(): number {
